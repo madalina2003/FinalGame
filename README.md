@@ -1,3 +1,2 @@
 # RecycleGameNewVersion
-
-https://madalina2003.github.io/RecycleGameNewVersion/foodwaste.html
+https://madalina2003.github.io/FinalGame/HomePage.html

@@ -2,8 +2,10 @@ body {
   font-family: Roboto, sans-serif;
   text-align: center;
   color: #333;
-  background-image: url("https://www.ssofficeinteriors.ie/wp-content/uploads/2023/09/S-S-TUS-Canteen-Drawing-3-1030x504.jpg");
-  background-size: 100% auto;
+  background-image: url('ezgif.com-resize.gif');
+  /*background-image: url("https://media.giphy.com/media/3o7TKF7OwUykg6yXIs/giphy.gif");*/
+  /*background-image: url("https://media.giphy.com/media/3o7TKz7HQDOniumrok/giphy.gif");*/
+  background-size: auto;
   background-attachment: fixed;
 }
 .close-btn {
@@ -27,8 +29,9 @@ h1 {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
+
 p {
-  color: black;
+  color: white;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 #start-container {

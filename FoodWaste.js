@@ -3,13 +3,13 @@ let wrongAnswers = 0;
 let itemsPlaced = 0;
 let totalItems = document.querySelectorAll('.item').length;
 let isTimerRunning = false;
-let timeLeft = 120; // Time in seconds
+let timeLeft = 120; 
 let timerInterval = null;
 
-// Start the timer
+
 function startTimer() {
   const timerElement = document.getElementById('timer');
-  if (timerInterval) clearInterval(timerInterval); // Ensure no duplicate timers
+  if (timerInterval) clearInterval(timerInterval); 
   isTimerRunning = true;
 
   timerInterval = setInterval(() => {
@@ -20,42 +20,41 @@ function startTimer() {
       timerElement.textContent = `Time Left: ${minutes}:${seconds.toString().padStart(2, '0')}`;
     } else {
       stopTimer();
-      disableItems(); // Disable dragging when the timer stops
+      disableItems();
       showGameOverModal();
     }
   }, 1000);
 }
 
-// Stop the timer
+
 function stopTimer() {
   clearInterval(timerInterval);
   timerInterval = null;
   isTimerRunning = false;
 }
 
-// Disable all items
+
 function disableItems() {
   document.querySelectorAll('.item').forEach(item => {
     item.setAttribute('draggable', 'false');
   });
 }
 
-// Start the game
 function startGame() {
   document.getElementById('start-container').style.display = 'none';
   document.getElementById('game-info').style.display = 'block';
   document.getElementById('game-content').style.display = 'block';
 
   if (document.title.includes("Level 2")) {
-    initializeLevel2(); // Initialize Level 2-specific logic
+    initializeLevel2(); 
   } else {
-    resetGame(); // Reset the game only for Level 1
+    resetGame(); 
   }
 
-  startTimer(); // Start fresh timer
+  startTimer(); 
 }
 
-// Reset the game (for Level 1 only)
+
 function resetGame() {
   score = 0;
   wrongAnswers = 0;
@@ -71,10 +70,10 @@ function resetGame() {
     item.classList.remove('processed', 'incorrect');
   });
 
-  stopTimer(); // Ensure no old timer runs
+  stopTimer(); 
 }
 
-// Drag and Drop Handlers
+
 function drag(event) {
   if (!isTimerRunning) {
     event.preventDefault();
@@ -102,7 +101,7 @@ function drop(event) {
   const targetBin = event.target.closest('.bin');
 
   if (droppedItem.classList.contains('processed') || droppedItem.classList.contains('incorrect')) {
-    return; // Prevent duplicate processing
+    return; 
   }
 
   if (targetBin && targetBin.id === `${itemType}-bin`) {
@@ -118,29 +117,28 @@ function drop(event) {
       showCongratulationsModal();
     }
   } else {
-    // Incorrect placement
+  
     droppedItem.classList.add('incorrect');
     wrongAnswers++;
     document.getElementById('score').textContent = `Score: ${score} Correct, ${wrongAnswers} Wrong`;
     showWrongModal(droppedItem);
 
-    // Re-enable dragging after a timeout
+    
     setTimeout(() => {
-      droppedItem.classList.remove('incorrect'); // Remove incorrect marker
-      droppedItem.setAttribute('draggable', 'true'); // Allow dragging again
-    }, 3000); // Adjust timeout to match modal display time
+      droppedItem.classList.remove('incorrect'); 
+      droppedItem.setAttribute('draggable', 'true'); 
+    }, 3000);
   }
 }
 
 
-// Save game state to localStorage
+
 function saveGameState() {
   localStorage.setItem('score', score);
   localStorage.setItem('wrongAnswers', wrongAnswers);
   localStorage.setItem('timeLeft', timeLeft);
 }
 
-// Load game state from localStorage
 function loadGameState() {
   score = parseInt(localStorage.getItem('score') || '0', 10);
   wrongAnswers = parseInt(localStorage.getItem('wrongAnswers') || '0', 10);
@@ -152,22 +150,21 @@ function loadGameState() {
   document.getElementById('timer').textContent = `Time Left: ${minutes}:${seconds.toString().padStart(2, '0')}`;
 }
 
-// Initialize Level 2
 function initializeLevel2() {
   loadGameState();
 
   document.querySelectorAll('.item').forEach(item => {
-    const newItem = item.cloneNode(true); // Clone to reset listeners
+    const newItem = item.cloneNode(true); 
     item.parentNode.replaceChild(newItem, item);
     newItem.addEventListener('dragstart', drag);
     newItem.classList.remove('processed', 'incorrect');
     newItem.style.display = 'inline-block';
   });
 
-  stopTimer(); // Ensure no old timer runs
+  stopTimer(); 
 }
 
-// Show Modals
+
 function showCongratulationsModal() {
   const isLevel2 = document.title.includes("Level 2");
 
@@ -183,13 +180,13 @@ function showCongratulationsModal() {
     document.getElementById('results-percentage').textContent = isNaN(percentageCorrect) ? 0 : percentageCorrect;
     document.getElementById('results-time').textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
 
-    // Add Play Again button for Level 2
+   
     const modal = document.getElementById('congratulations-modal');
     const playAgainButton = document.createElement('button');
     playAgainButton.textContent = 'Play Again';
     playAgainButton.onclick = () => {
-      localStorage.clear(); // Clear saved game state
-      window.location.href = 'foodwaste.html'; // Redirect to Level 1
+      localStorage.clear(); 
+      window.location.href = 'foodwaste.html';
     };
     modal.appendChild(playAgainButton);
   } else {
@@ -236,13 +233,12 @@ const messages = {
 
   closeBtn.onclick = () => {
     wrongModal.style.display = 'none';
-    droppedItem.setAttribute('draggable', 'true'); // Re-enable dragging
-    droppedItem.classList.remove('incorrect'); // Remove incorrect class
+    droppedItem.setAttribute('draggable', 'true');
+    droppedItem.classList.remove('incorrect');
   };
 }
 
 
-// Event Listeners
 document.getElementById('start-button').addEventListener('click', startGame);
 
 document.querySelectorAll('.item').forEach(item => {

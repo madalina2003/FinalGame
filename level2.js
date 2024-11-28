@@ -13,10 +13,13 @@ let gameStarted = false;
 const totalComponents = Object.values(itemBreakdown).flat().length;
 
 
+document.addEventListener("DOMContentLoaded", () => {
+    startGame(); // Automatically starts the game when the page loads
+});
+
 function startGame() {
     if (gameStarted) return;
     gameStarted = true;
-
 
     document.querySelectorAll(".component").forEach(item => {
         item.setAttribute("draggable", "true");
@@ -149,7 +152,7 @@ function showWrongModal(droppedItem) {
         "item2-component0": "Chips belong in the compost bin.",
         "item2-component1": "Cardboard is recyclable.",
         "item3-component0": "Chicken leftovers go in compost.",
-        "item3-component1": "Plastic wrap belongs in trash.",
+        "item3-component1": "Food wrap belongs in trash to not contaminate the recycling bin.",
         "item4-component0": "Plastic forks are recyclable.",
         "item4-component1": "Sausages go in compost.",
         "item5-component0": "Pasta belongs in compost.",

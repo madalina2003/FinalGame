@@ -14,7 +14,7 @@ const totalComponents = Object.values(itemBreakdown).flat().length;
 
 
 document.addEventListener("DOMContentLoaded", () => {
-    startGame(); // Automatically starts the game when the page loads
+    startGame(); 
 });
 
 function startGame() {
@@ -25,7 +25,7 @@ function startGame() {
         item.setAttribute("draggable", "true");
     });
 
-    // Reset scores and timer
+  
     correctScore = 0;
     wrongScore = 0;
     timeLeft = 120;
@@ -48,7 +48,7 @@ function breakDown(event, itemId) {
         component.classList.add("component");
         component.src = componentData.src;
         component.alt = `Component ${index + 1}`;
-        component.style.width = "40px"; // Smaller size
+        component.style.width = "40px"; 
         component.id = `${itemId}-component${index}`;
         component.draggable = true;
         component.dataset.type = componentData.type;
@@ -86,7 +86,7 @@ function drop(event) {
     if (droppedItemType === targetBinType) {
         targetBin.appendChild(droppedItem);
         correctScore++;
-        checkGameCompletion(); // Check if the game is complete
+        checkGameCompletion(); 
     } else {
         wrongScore++;
         droppedItem.classList.add("incorrect");
@@ -139,10 +139,10 @@ function showCongratulationsModal() {
     const modal = document.getElementById('congratulations-modal');
     modal.style.display = 'block';
 
-    // Attach close button event
+
     const closeBtn = document.getElementById('close-congratulations-btn');
     closeBtn.onclick = () => {
-        modal.style.display = 'none'; // Hide the modal
+        modal.style.display = 'none'; 
     };
 }
 

@@ -3,10 +3,13 @@ body {
   text-align: center;
   color: #333;
   background-image: url('ezgif.com-resize.gif');
-  /*background-image: url("https://media.giphy.com/media/3o7TKF7OwUykg6yXIs/giphy.gif");*/
-  /*background-image: url("https://media.giphy.com/media/3o7TKz7HQDOniumrok/giphy.gif");*/
-  background-size: auto;
-  background-attachment: fixed;
+  background-size: cover; /* Ensures the image fills the screen */
+  background-position: center; /* Centres the image */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  background-attachment: fixed; /* Keeps the image fixed while scrolling */
+  height: 90vh; /* Ensures the body takes up the full viewport height */
+  margin: 0; /* Removes default body margin */
+  padding: 0; /* Removes default body padding */
 }
 .close-btn {
   font-size: 16px;

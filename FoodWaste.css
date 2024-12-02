@@ -2,28 +2,28 @@ body {
   font-family: Roboto, sans-serif;
   text-align: center;
   color: #333;
-  background-image: url('ezgif.com-resize.gif');
-  background-size: cover; 
-  background-position: center;
-  background-repeat: no-repeat; 
-  background-attachment: fixed;
-  height: 90vh; 
-  margin: 0;
-  padding: 0;
+  background-image: url('canteen.png');
+  background-size: cover; /* Ensures the image fills the screen */
+  background-position: center; /* Centres the image */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  background-attachment: fixed; /* Keeps the image fixed while scrolling */
+  height: 90vh; /* Ensures the body takes up the full viewport height */
+  margin: 0; /* Removes default body margin */
+  padding: 0; /* Removes default body padding */
 }
 .close-btn {
   font-size: 16px;
   padding: 10px;
-  background-color: #f44336;
-  color: white; 
+  background-color: #f44336; /* Red background */
+  color: white; /* White text */
   border: none;
   border-radius: 5px;
-  cursor: not-allowed; 
+  cursor: not-allowed; /* Change cursor when disabled */
 }
 
 .close-btn:enabled {
   cursor: pointer;
-  background-color: #4caf50; 
+  background-color: #4caf50; /* Green background when enabled */
 }
 
 h1 {
@@ -137,7 +137,7 @@ img {
 .item-container {
   position: relative;
   display: inline-block;
-  width: 130px; 
+  width: 130px; /* Adjust based on your image size */
   height: 130px;
 }
 
@@ -157,28 +157,28 @@ img {
   justify-content: center;
   align-items: center;
   gap: 5px;
-  background-color: rgba(255, 255, 255, 0.8); 
+  background-color: rgba(255, 255, 255, 0.8); /* Optional overlay effect */
 }
 
 .hidden {
   display: none;
 }
 .component {
-  width: 100px;
-  height: auto;  
-  margin: 5px;  
-  cursor: pointer; 
-  border-radius: 8px;
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); 
-  transition: transform 0.3s ease; 
+  width: 100px; /* Adjusted size for better visibility */
+  height: auto;  /* Keep aspect ratio of images */
+  margin: 5px;   /* Add space between components */
+  cursor: pointer;  /* Indicate the image is draggable */
+  border-radius: 8px; /* Rounded corners for a smoother look */
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);  /* Subtle shadow for better visibility */
+  transition: transform 0.3s ease;  /* Smooth animation for dragging */
 }
 .component:hover {
-  transform: scale(2.2);  
+  transform: scale(2.2);  /* Slight zoom effect when hovering */
 }
 
-
+/* Optionally add a higher-quality image setting */
 img {
-  object-fit: cover;  
+  object-fit: cover;  /* Ensure image fills the component size without distortion */
 }
 
 
@@ -193,9 +193,9 @@ img {
   color: #333;
 }
 .item img {
-  width: 110%; 
-  height: auto; 
-  border-radius: 10px;
+  width: 110%; /* Adjusts the image width to fit the container */
+  height: auto; /* Maintains the aspect ratio */
+  border-radius: 10px; /* Matches the .item container's border radius */
 }
 
 .item {
@@ -366,13 +366,13 @@ a button:hover {
   }
 
   #congratulations-modal ul {
-    list-style-type: none;
-    padding: 0; 
-    margin: 0; 
+    list-style-type: none; /* Removes bullet points */
+    padding: 0; /* Removes default padding */
+    margin: 0; /* Removes default margin */
   }
 
   #congratulations-modal ul li {
-    margin-bottom: 10px; 
+    margin-bottom: 10px; /* Optional: Adds spacing between items */
   }
 
 
